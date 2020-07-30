@@ -485,6 +485,12 @@
       <discardResults>true</discardResults>
     </con:config>
   </con:testStep>
+  <con:testStep type="delay" name="Delay" id="15864def-bc1a-4af9-a405-c33b213a507e">
+    <con:settings/>
+    <con:config>
+      <delay>1000</delay>
+    </con:config>
+  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
   <con:breakPoints>
