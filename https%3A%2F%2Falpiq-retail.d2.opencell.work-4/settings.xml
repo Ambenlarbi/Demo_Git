@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="f108753f-e346-4f89-ac4d-2ee24a8139eb" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://alpiq-retail.d2.opencell.work 4" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f108753f-e346-4f89-ac4d-2ee24a8139ebfileName">https%3A%2F%2Falpiq-retail.d2.opencell.work-4</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>https://alpiq-retail.d2.opencell.work</con:endpoint>
+  </con:endpoints>
+</con:interface>

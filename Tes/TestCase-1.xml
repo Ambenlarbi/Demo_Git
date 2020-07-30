@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4160679a-b685-4515-98f4-ad872f98e909" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4160679a-b685-4515-98f4-ad872f98e909fileName">TestCase-1</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="DataSource" id="c128ee6e-2b6f-460c-ab35-028ad2372627">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>C:/Users/Mootaz BEN MANSOUR/Desktop/Alpiq/Factu_JDD/Factu_Client.xlsx</file>
+          <worksheet/>
+          <cell>A2</cell>
+          <ignoreEmpty>true</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>ID_CLIENT</con:property>
+      <con:property>PRENOM</con:property>
+      <con:property>NOM</con:property>
+      <con:property>CIVILITE</con:property>
+      <con:property>DATE_SOUSCRIPTION</con:property>
+      <con:property>NUM_RUE_FACTU</con:property>
+      <con:property>VILLE_FACTU</con:property>
+      <con:property>CODE_POSTAL_FACTU</con:property>
+      <con:property>COMPLEMENT_1_FACTU</con:property>
+      <con:property>COMPLEMENT_2_FACTU</con:property>
+      <con:property>MAIL</con:property>
+      <con:property>TELEPHONE</con:property>
+      <con:property>OPTION_TARIFAIRE</con:property>
+      <con:property>NIVEAU_PRIX</con:property>
+      <con:property>VERSION_OFFRE</con:property>
+      <con:property>ID_POD</con:property>
+      <con:property>CODE_INSEE</con:property>
+      <con:property>PUISSANCE_SOUSCRITE</con:property>
+      <con:property>PROPRIETE_COMPTEUR</con:property>
+      <con:property>FTA</con:property>
+      <con:property>NIVEAU_ELEC_VERTE</con:property>
+      <con:property>VERSION_ELEC_VERTE</con:property>
+      <con:property>%_ELEC_VERTE</con:property>
+      <con:property>ORIGINE_ELEC_VERTE</con:property>
+      <con:property>TECHNO_ELEC_VERTE</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="aa499998-6a2a-4f71-8256-100b802f8e0f">
+    <con:settings/>
+    <con:config service="https://alpiq-retail.d2.opencell.work" resourcePath="/account/accountHierarchy/createOrUpdateCRMAccountHierarchy" methodName="" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="012edc3a-784a-4615-9b8f-97a1711c8dc5" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+        <con:request>{
+  "crmAccountType": "C_UA",
+  "crmParentCode": "ALPIQ",
+  "code": "${DataSource#ID_CLIENT}",
+  "description": "Alpiqretail ETESTSOAP",
+  "name": {
+    "title": "${DataSource#CIVILITE}",
+    "firstName": "${DataSource#PRENOM}",
+    "lastName": "${DataSource#NOM}"
+  },
+  "address": {
+    "address1": "${DataSource#NUM_RUE_FACTU}",
+    "zipCode": "${DataSource#CODE_POSTAL_FACTU}",
+    "city": "${DataSource#VILLE_FACTU}",
+    "country": "FR",
+    "state": "TEXAS"
+  },
+  "contactInformation": {
+    "email": "${DataSource#MAIL}",
+    "mobile": "${DataSource#TELEPHONE}"
+  },
+  "email": "${DataSource#MAIL}",
+  "language": "ENG",
+  "methodOfPayment": [
+    {
+      "paymentMethodType": "DIRECTDEBIT",
+      "disabled": false,
+      "alias": "SEPA",
+      "preferred": true,
+      "customerAccountCode": "ETESTSOAP",
+      "bankCoordinates": {
+        "bankCode": null,
+        "branchCode": null,
+        "accountNumber": null,
+        "key": null,
+        "iban": "FR123456789123456789",
+        "bic": "BDNFR123456",
+        "accountOwner": "Alpiqretail ETESTSOAP",
+        "bankName": "Banque",
+        "bankId": null,
+        "issuerNumber": null,
+        "issuerName": null,
+        "ics": "FR01234PSA5678"
+      },
+      "mandateIdentification": "MAN1234568798",
+      "mandateDate": "2018-03-01"
+    }
+  ],
+  "customerCategory": "B2B",
+  "currency": "EUR",
+  "billingCycle": "BC_AQ_MONTHLY_1ST",
+  "country": "FR",
+  "electronicBilling": "true",
+  "mailingType": "manual",
+  "emailTemplate": "EMAILTEMP_SENDINVOICE",
+  "customFields": null
+}</con:request>
+        <con:originalUri>https://alpiq-retail.d2.opencell.work/account/accountHierarchy/createOrUpdateCRMAccountHierarchy</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="bc6076b6-786d-48a6-a506-31bea7fc171c" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:username>opencell.superadmin</con:username>
+          <con:password>opencell.superadmin</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:addedBasicAuthenticationTypes>NTLM</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+        <con:environmentSpec>
+          <con:entry environmentId="a04c6153-1d27-4f78-a75d-2929a3575483">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Subscription" id="72545f2a-2495-4dbd-bbe4-82265010c16b">
+    <con:settings/>
+    <con:config service="https://alpiq-retail.d2.opencell.work 1" resourcePath="/billing/subscription/createOrUpdate" methodName="" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Subscription" id="7165f4c7-f09f-462e-95c9-088120abf463" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+        <con:request>{
+    "code": "${DataSource#ID_CLIENT}",
+    "description": "${DataSource#ID_CLIENT} SUB",
+    "userAccount": "${DataSource#ID_CLIENT}",
+    "offerTemplate": "${DataSource#OPTION_TARIFAIRE}",
+    "subscriptionDate": "${DataSource#DATE_SOUSCRIPTION}",
+    "endAgreementDate": null,
+    "status": null,
+    "customFields": {
+        "customField": [
+            {
+                "code": "cf_sub_option_tarifaire",
+                "valuePeriodStartDate": "2019-01-01",
+                "valuePeriodEndDate": "2020-12-31",
+                "valuePeriodPriority": 1,
+                "stringValue": "BASE"
+            },
+            {
+                "code": "cf_sub_price_level",
+                "valuePeriodStartDate": "2019-01-01",
+                "valuePeriodEndDate": "2020-01-13",
+                "valuePeriodPriority": 1,
+                "stringValue": "${DataSource#NIVEAU_PRIX}"
+            },
+            {
+                "code": "cf_sub_price_level",
+                "valuePeriodStartDate": "2020-01-14",
+                "valuePeriodEndDate": "2020-12-08",
+                "valuePeriodPriority": 1,
+                "stringValue": "C2"
+            },
+            {
+                "code": "cf_sub_offer_version",
+                "valuePeriodStartDate": "2019-01-01",
+                "valuePeriodEndDate": "2020-01-10",
+                "valuePeriodPriority": 1,
+                "stringValue": "${DataSource#VERSION_OFFRE}"
+            },
+            {
+                "code": "cf_sub_offer_version",
+                "valuePeriodStartDate": "2020-01-11",
+                "valuePeriodEndDate": "2020-12-20",
+                "valuePeriodPriority": 1,
+                "stringValue": "${DataSource#VERSION_OFFRE}"
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>https://alpiq-retail.d2.opencell.work/opencell/api/rest/billing/subscription/createOrUpdate</con:originalUri>
+        <con:credentials>
+          <con:username>opencell.superadmin</con:username>
+          <con:password>opencell.superadmin</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create POD" id="e91b9b73-9f4b-40ce-83a1-6a2e6b7c4402">
+    <con:settings/>
+    <con:config service="https://alpiq-retail.d2.opencell.work 2" resourcePath="/v2/generic/PointOfDeliveryElec" methodName="Rest" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create POD" id="384eb378-6749-4a55-b5d3-bc9bbf18ea0f" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+        <con:request>{
+    "code":"${DataSource#ID_CLIENT}",
+    "description": "${DataSource#ID_CLIENT} POD",
+    "grid": "ENEDIS",
+    "cfValues": {
+        "valuesByCode": {
+            "cf_pod_elec_ppt_compt": [
+                {
+                    "from": "2019-12-01T00:00:00+01:00",
+                    "to": "2019-12-31T00:00:00+01:00",
+                    "priority": 1,
+                    "value": "CUST"
+                },
+                {
+                    "from": "2020-01-01T00:00:00+01:00",
+                    "to": "2020-06-16T00:00:00+01:00",
+                    "priority": 2,
+                    "value": "MUDT"
+                }
+            ],
+            "cf_pod_elec_code_insee": [
+                {
+                    "from": "2019-12-01T00:00:00+01:00",
+                    "to": "2019-12-31T00:00:00+01:00",
+                    "priority": 1,
+                    "value": "44200"
+                },
+                {
+                    "from": "2020-01-01T00:00:00+01:00",
+                    "to": "2020-06-16T00:00:00+01:00",
+                    "priority": 2,
+                    "value": "67400"
+                }
+            ],
+            "cf_pod_elec_puiss_souscrite": [
+                {
+                    "from": "2019-12-01T00:00:00+01:00",
+                    "to": "2020-12-01T00:00:00+01:00",
+                    "priority": 1,
+                    "value": 2
+                }
+            ]
+        }
+    }
+}</con:request>
+        <con:originalUri>https://alpiq-retail.d2.opencell.work/opencell/api/rest/v2/generic/PointOfDeliveryElec</con:originalUri>
+        <con:credentials>
+          <con:username>opencell.admin</con:username>
+          <con:password>opencell.admin</con:password>
+          <con:domain/>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Activate-Abo" id="b39564a2-3e09-406e-b21a-b60c753551ff">
+    <con:settings/>
+    <con:config service="https://alpiq-retail.d2.opencell.work 4" resourcePath="/billing/subscription/activateServices" methodName="Rest" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Activate-Abo" id="a6c22cb2-3950-45ec-881b-611b7ad3baf3" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+        <con:request>{
+    "subscription": "${DataSource#ID_CLIENT}",
+    "servicesToActivate": {
+        "service": [
+            {
+                "code": "SE_AQ_ELEC_ABO",
+                "quantity": 1,
+                "subscriptionDate": "${DataSource#DATE_SOUSCRIPTION}",
+                "rateUntilDate": null
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>https://alpiq-retail.d2.opencell.work/opencell/api/rest/billing/subscription/activateServices</con:originalUri>
+        <con:credentials>
+          <con:username>opencell.admin</con:username>
+          <con:password>opencell.admin</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Activate-Conso" id="2ceb3b1f-e89c-4dd1-b0d7-e5562bcdfc99">
+    <con:settings/>
+    <con:config service="https://alpiq-retail.d2.opencell.work 5" resourcePath="/billing/subscription/activateServices" methodName="Rest" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Activate-Conso" id="6995f7ab-7ebd-406e-ac2c-93c5704e7474" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+        <con:request>{
+    "subscription": "${DataSource#ID_CLIENT}",
+    "servicesToActivate": {
+        "service": [
+            {
+                "code": "SE_AQ_ELEC_CONSO",
+                "quantity": 1,
+                "subscriptionDate": "${DataSource#DATE_SOUSCRIPTION}",
+                "rateUntilDate": null
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>https://alpiq-retail.d2.opencell.work/opencell/api/rest/billing/subscription/activateServices</con:originalUri>
+        <con:credentials>
+          <con:username>opencell.admin</con:username>
+          <con:password>opencell.admin</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Activate-Conso-Verte" id="61d948a8-1f45-4c82-9341-e473fd3e4809">
+    <con:settings/>
+    <con:config service="https://alpiq-retail.d2.opencell.work 6" resourcePath="" methodName="Rest" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Activate-Conso-Verte" id="6190f1ef-74cd-454f-a6b2-c8c972a64b3e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+        <con:request>{
+    "subscription": "${DataSource#ID_CLIENT}",
+    "servicesToActivate": {
+        "service": [
+            {
+                "code": "SE_AQ_ELEC_CONSO_ENERGIE_VERTE",
+                "quantity": 1,
+                "subscriptionDate": "${DataSource#DATE_SOUSCRIPTION}",
+                "rateUntilDate": null,
+                "customFields": {
+                    "customField": [
+                        {
+                            "code": "cf_srv_niveau_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2019-12-20",
+                            "valuePeriodPriority": 1,
+                            "doubleValue": 0.7
+                        },
+                        {
+                            "code": "cf_srv_niveau_elec_verte",
+                            "valuePeriodStartDate": "2019-12-21",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "doubleValue": 0.5
+                        },
+                        {
+                            "code": "cf_srv_origine_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2019-12-25",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "France"
+                        },
+                        {
+                            "code": "cf_srv_origine_elec_verte",
+                            "valuePeriodStartDate": "2019-12-26",
+                            "valuePeriodEndDate": "2020-12-25",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "Suisse"
+                        },
+                        {
+                            "code": "cf_srv_techno_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2020-01-05",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "Solaire"
+                        },
+                        {
+                            "code": "cf_srv_techno_elec_verte",
+                            "valuePeriodStartDate": "2020-01-06",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "Hydraulique"
+                        },
+                        {
+                            "code": "cf_srv_niveau_prix_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2020-01-13",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "O001"
+                        },
+                        {
+                            "code": "cf_srv_niveau_prix_elec_verte",
+                            "valuePeriodStartDate": "2020-01-14",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "O002"
+                        },
+                        {
+                            "code": "cf_srv_version_offre_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2020-01-09",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "${DataSource#VERSION_ELEC_VERTE}"
+                        },
+                                                {
+                            "code": "cf_srv_version_offre_elec_verte",
+                            "valuePeriodStartDate": "2020-01-10",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "${DataSource#VERSION_ELEC_VERTE}"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:originalUri>
+        <con:credentials>
+          <con:username>opencell.admin</con:username>
+          <con:password>opencell.admin</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="286928ea-16f8-4157-a735-8f0724d0ff41">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>REST Request</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>c128ee6e-2b6f-460c-ab35-028ad2372627</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>aa499998-6a2a-4f71-8256-100b802f8e0f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>286928ea-16f8-4157-a735-8f0724d0ff41</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>72545f2a-2495-4dbd-bbe4-82265010c16b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e91b9b73-9f4b-40ce-83a1-6a2e6b7c4402</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>b39564a2-3e09-406e-b21a-b60c753551ff</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2ceb3b1f-e89c-4dd1-b0d7-e5562bcdfc99</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>61d948a8-1f45-4c82-9341-e473fd3e4809</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

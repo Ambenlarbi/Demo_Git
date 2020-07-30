@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Rest" path="" id="48965aef-9b85-4412-8ac7-e6cf7d91433d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="48965aef-9b85-4412-8ac7-e6cf7d91433dfileName">Rest</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Rest" id="cb2c0ddf-d8f8-4781-99ca-e01f5ce14e25" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="6190f1ef-74cd-454f-a6b2-c8c972a64b3e" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+      <con:request>{
+    "subscription": "{{ac.code}}",
+    "servicesToActivate": {
+        "service": [
+            {
+                "code": "SE_AQ_ELEC_CONSO_ENERGIE_VERTE",
+                "quantity": 1,
+                "subscriptionDate": "{{subscription_date}}",
+                "rateUntilDate": null,
+                "customFields": {
+                    "customField": [
+                        {
+                            "code": "cf_srv_niveau_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2019-12-20",
+                            "valuePeriodPriority": 1,
+                            "doubleValue": 0.7
+                        },
+                        {
+                            "code": "cf_srv_niveau_elec_verte",
+                            "valuePeriodStartDate": "2019-12-21",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "doubleValue": 0.5
+                        },
+                        {
+                            "code": "cf_srv_origine_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2019-12-25",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "France"
+                        },
+                        {
+                            "code": "cf_srv_origine_elec_verte",
+                            "valuePeriodStartDate": "2019-12-26",
+                            "valuePeriodEndDate": "2020-12-25",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "Suisse"
+                        },
+                        {
+                            "code": "cf_srv_techno_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2020-01-05",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "Solaire"
+                        },
+                        {
+                            "code": "cf_srv_techno_elec_verte",
+                            "valuePeriodStartDate": "2020-01-06",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "Hydraulique"
+                        },
+                        {
+                            "code": "cf_srv_niveau_prix_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2020-01-13",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "O001"
+                        },
+                        {
+                            "code": "cf_srv_niveau_prix_elec_verte",
+                            "valuePeriodStartDate": "2020-01-14",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "O002"
+                        },
+                        {
+                            "code": "cf_srv_version_offre_elec_verte",
+                            "valuePeriodStartDate": "2019-01-01",
+                            "valuePeriodEndDate": "2020-01-09",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "V2020"
+                        },
+                                                {
+                            "code": "cf_srv_version_offre_elec_verte",
+                            "valuePeriodStartDate": "2020-01-10",
+                            "valuePeriodEndDate": "2020-12-31",
+                            "valuePeriodPriority": 1,
+                            "stringValue": "V2021"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}</con:request>
+      <con:credentials>
+        <con:username>opencell.admin</con:username>
+        <con:password>opencell.admin</con:password>
+        <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+        <con:preemptive>true</con:preemptive>
+        <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+        <con:authType>Preemptive</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

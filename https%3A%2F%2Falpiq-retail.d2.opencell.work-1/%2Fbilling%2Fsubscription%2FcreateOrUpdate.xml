@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="" path="/billing/subscription/createOrUpdate" id="81c7ffa4-3b7b-44fd-8322-55f695c29035" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="81c7ffa4-3b7b-44fd-8322-55f695c29035fileName">%2Fbilling%2Fsubscription%2FcreateOrUpdate</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="" id="cbc36281-3b35-418a-81e0-7e2e527eb857" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:cre="https://alpiq-retail.d2.opencell.work/opencell/api/rest/billing/subscription/createOrUpdate">cre:Response</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="7165f4c7-f09f-462e-95c9-088120abf463" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+      <con:request>{
+    "code": "{{ac.code}}",
+    "description": "{{ac.code}} SUB",
+    "userAccount": "{{ac.code}}",
+    "offerTemplate": "OF_ELEC_ALPIQ1",
+    "subscriptionDate": "{{subscription_date}}",
+    "endAgreementDate": null,
+    "status": null,
+    "customFields": {
+        "customField": [
+            {
+                "code": "cf_sub_option_tarifaire",
+                "valuePeriodStartDate": "2019-01-01",
+                "valuePeriodEndDate": "2020-12-31",
+                "valuePeriodPriority": 1,
+                "stringValue": "BASE"
+            },
+            {
+                "code": "cf_sub_price_level",
+                "valuePeriodStartDate": "2019-01-01",
+                "valuePeriodEndDate": "2020-01-13",
+                "valuePeriodPriority": 1,
+                "stringValue": "C1"
+            },
+            {
+                "code": "cf_sub_price_level",
+                "valuePeriodStartDate": "2020-01-14",
+                "valuePeriodEndDate": "2020-12-08",
+                "valuePeriodPriority": 1,
+                "stringValue": "C2"
+            },
+            {
+                "code": "cf_sub_offer_version",
+                "valuePeriodStartDate": "2019-01-01",
+                "valuePeriodEndDate": "2020-01-10",
+                "valuePeriodPriority": 1,
+                "stringValue": "V001"
+            },
+            {
+                "code": "cf_sub_offer_version",
+                "valuePeriodStartDate": "2020-01-11",
+                "valuePeriodEndDate": "2020-12-20",
+                "valuePeriodPriority": 1,
+                "stringValue": "V002"
+            }
+        ]
+    }
+}</con:request>
+      <con:credentials>
+        <con:username>opencell.superadmin</con:username>
+        <con:password>opencell.superadmin</con:password>
+        <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+        <con:preemptive>true</con:preemptive>
+        <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+        <con:authType>Preemptive</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

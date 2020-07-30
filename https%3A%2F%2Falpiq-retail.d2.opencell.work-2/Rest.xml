@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Rest" path="/v2/generic/PointOfDeliveryElec" id="e1e5aa17-ea61-44c6-9721-a64afc6e181e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e1e5aa17-ea61-44c6-9721-a64afc6e181efileName">Rest</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Rest" id="e338b2e2-d706-4060-af8a-038a88d86cc4" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:poin="https://alpiq-retail.d2.opencell.work/opencell/api/rest/v2/generic/PointOfDeliveryElec">poin:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element xmlns:poin="https://alpiq-retail.d2.opencell.work/opencell/api/rest/v2/generic/PointOfDeliveryElec">poin:Fault</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="384eb378-6749-4a55-b5d3-bc9bbf18ea0f" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+      <con:request>{
+    "code": "",
+    "description": "{{ac.code}} POD",
+    "grid": "ENEDIS",
+    "cfValues": {
+        "valuesByCode": {
+            "cf_pod_elec_ppt_compt": [
+                {
+                    "from": "2019-12-01T00:00:00+01:00",
+                    "to": "2019-12-31T00:00:00+01:00",
+                    "priority": 1,
+                    "value": "CUST"
+                },
+                {
+                    "from": "2020-01-01T00:00:00+01:00",
+                    "to": "2020-06-16T00:00:00+01:00",
+                    "priority": 2,
+                    "value": "MUDT"
+                }
+            ],
+            "cf_pod_elec_code_insee": [
+                {
+                    "from": "2019-12-01T00:00:00+01:00",
+                    "to": "2019-12-31T00:00:00+01:00",
+                    "priority": 1,
+                    "value": "44200"
+                },
+                {
+                    "from": "2020-01-01T00:00:00+01:00",
+                    "to": "2020-06-16T00:00:00+01:00",
+                    "priority": 2,
+                    "value": "67400"
+                }
+            ],
+            "cf_pod_elec_puiss_souscrite": [
+                {
+                    "from": "2019-12-01T00:00:00+01:00",
+                    "to": "2020-12-01T00:00:00+01:00",
+                    "priority": 1,
+                    "value": 2
+                }
+            ]
+        }
+    }
+}</con:request>
+      <con:credentials>
+        <con:username>opencell.admin</con:username>
+        <con:password>opencell.admin</con:password>
+        <con:domain/>
+        <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+        <con:preemptive>true</con:preemptive>
+        <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+        <con:authType>Preemptive</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder/>
+    </con:request>
+  </con:method>
+</con:resource>

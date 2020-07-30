@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="" path="/account/accountHierarchy/createOrUpdateCRMAccountHierarchy" id="2afd4a8a-fdbf-47f6-8fcd-6255bcb9f238" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2afd4a8a-fdbf-47f6-8fcd-6255bcb9f238fileName">%2Faccount%2FaccountHierarchy%2FcreateOrUpdateCRMAccountHierarchy</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="" id="44b8c776-4b8c-4d3b-b0bc-838ec86f09a5" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>0</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:cre="https://alpiq-retail.d2.opencell.work/account/accountHierarchy/createOrUpdateCRMAccountHierarchy">cre:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400 404</con:status>
+      <con:params/>
+      <con:element xmlns:cre="https://alpiq-retail.d2.opencell.work/account/accountHierarchy/createOrUpdateCRMAccountHierarchy">cre:Fault</con:element>
+    </con:representation>
+    <con:request name="CreateHierarchy" id="012edc3a-784a-4615-9b8f-97a1711c8dc5" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+      <con:request>{
+  "crmAccountType": "C_UA",
+  "crmParentCode": "ALPIQ",
+  "code": "ETESTSOAP",
+  "description": "Alpiqretail ETESTSOAP",
+  "name": {
+    "title": null,
+    "firstName": "John",
+    "lastName": "ETESTSOAP"
+  },
+  "address": {
+    "address1": "14 rue Crespin du Gast",
+    "zipCode": "75012",
+    "city": "Paris",
+    "country": "FR",
+    "state": "TEXAS"
+  },
+  "contactInformation": {
+    "email": "sales@opencellsoft.com",
+    "mobile": "+33123546789"
+  },
+  "email": "sales@opencellsoft.com",
+  "language": "ENG",
+  "methodOfPayment": [
+    {
+      "paymentMethodType": "DIRECTDEBIT",
+      "disabled": false,
+      "alias": "SEPA",
+      "preferred": true,
+      "customerAccountCode": "ETESTSOAP",
+      "bankCoordinates": {
+        "bankCode": null,
+        "branchCode": null,
+        "accountNumber": null,
+        "key": null,
+        "iban": "FR123456789123456789",
+        "bic": "BDNFR123456",
+        "accountOwner": "Alpiqretail ETESTSOAP",
+        "bankName": "Banque",
+        "bankId": null,
+        "issuerNumber": null,
+        "issuerName": null,
+        "ics": "FR01234PSA5678"
+      },
+      "mandateIdentification": "MAN1234568798",
+      "mandateDate": "2018-03-01"
+    }
+  ],
+  "customerCategory": "B2B",
+  "currency": "EUR",
+  "billingCycle": "BC_AQ_MONTHLY_1ST",
+  "country": "FR",
+  "electronicBilling": "true",
+  "mailingType": "manual",
+  "emailTemplate": "EMAILTEMP_SENDINVOICE",
+  "customFields": null
+}</con:request>
+      <con:originalUri>https://alpiq-retail.d2.opencell.work/account/accountHierarchy/createOrUpdateCRMAccountHierarchy</con:originalUri>
+      <con:credentials>
+        <con:username>opencell.superadmin</con:username>
+        <con:password>opencell.superadmin</con:password>
+        <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+        <con:preemptive>true</con:preemptive>
+        <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+        <con:addedBasicAuthenticationTypes>NTLM</con:addedBasicAuthenticationTypes>
+        <con:authType>Preemptive</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder/>
+      <con:environmentSpec>
+        <con:entry environmentId="a04c6153-1d27-4f78-a75d-2929a3575483">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="a04c6153-1d27-4f78-a75d-2929a3575483">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="a04c6153-1d27-4f78-a75d-2929a3575483">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

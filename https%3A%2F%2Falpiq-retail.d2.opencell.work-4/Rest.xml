@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Rest" path="/billing/subscription/activateServices" id="77382a2d-08c2-4039-b369-22183da8f5d8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="77382a2d-08c2-4039-b369-22183da8f5d8fileName">Rest</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Rest" id="fdc3924b-d5a5-47ab-9bb9-f4aadc468716" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:act="https://alpiq-retail.d2.opencell.work/opencell/api/rest/billing/subscription/activateServices">act:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>500</con:status>
+      <con:params/>
+      <con:element xmlns:act="https://alpiq-retail.d2.opencell.work/opencell/api/rest/billing/subscription/activateServices">act:Fault</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="a6c22cb2-3950-45ec-881b-611b7ad3baf3" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:endpoint>https://alpiq-retail.d2.opencell.work/opencell/api/rest</con:endpoint>
+      <con:request>{
+    "subscription": "{{ac.code}}",
+    "servicesToActivate": {
+        "service": [
+            {
+                "code": "SE_AQ_ELEC_ABO",
+                "quantity": 1,
+                "subscriptionDate": "{{subscription_date}}",
+                "rateUntilDate": null
+            }
+        ]
+    }
+}</con:request>
+      <con:credentials>
+        <con:username>opencell.admin</con:username>
+        <con:password>opencell.admin</con:password>
+        <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+        <con:preemptive>true</con:preemptive>
+        <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+        <con:authType>Preemptive</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>
